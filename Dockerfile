@@ -1,13 +1,24 @@
-# Stage 1: Build with Maven
-FROM openjdk:17-jdk-alpine
+# 🏗️ Stage 1: Build stage - Maven tho JAR create cheyyadam
+FROM maven:3.9.4-eclipse-temurin-21 AS build
+
 WORKDIR /app
-COPY studentspring/. .
+
+# Source code ni current folder nunchi copy cheyyadam
+COPY . studentspring/.
+
+# Tests skip chesi JAR build cheyyadam
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the packaged JAR
-FROM openjdk:17jdk-alpine
+# 🚀 Stage 2: Runtime stage - JAR ni run cheyyadam
+FROM eclipse-temurin:21-jdk
+
 WORKDIR /app
-COPY studentspring/. .
+
+# Build stage nunchi final JAR ni copy cheyyadam
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
+
+# Application port expose cheyyadam (8888)
+EXPOSE 8888
+
+# Spring Boot app ni run cheyyadam
 ENTRYPOINT ["java", "-jar", "app.jar"]
