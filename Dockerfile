@@ -3,8 +3,8 @@ FROM maven:3.9.4-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-# Source code ni current folder nunchi copy cheyyadam
-COPY studentspring/. .  
+# Source code ni correct folder nunchi copy cheyyadam
+COPY studentspring/studentspring/ .
 
 # Tests skip chesi JAR build cheyyadam
 RUN mvn clean package -DskipTests
