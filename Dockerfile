@@ -7,9 +7,6 @@ COPY studentspring/ .
 
 
 
-# src folder ni copy cheyyadam
-COPY src/ src/
-
 # Maven wrapper files (if using ./mvnw)
 COPY mvnw .
 COPY .mvn/ .mvn/
