@@ -5,8 +5,7 @@ WORKDIR /app
 
 COPY studentspring/ .
 
-# pom.xml ni separate ga copy cheyyadam (Maven dependencies cache kosam)
-COPY pom.xml .
+
 
 # src folder ni copy cheyyadam
 COPY src/ src/
