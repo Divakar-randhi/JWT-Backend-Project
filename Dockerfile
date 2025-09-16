@@ -5,6 +5,10 @@ WORKDIR /app
 
 # studentspring folder lo pom.xml and src unnayi
 COPY studentspring/ .
+COPY pom.xml .
+
+COPY mvnw .
+COPY .mvn/ .mvn/
 
 RUN mvn clean package -DskipTests
 
