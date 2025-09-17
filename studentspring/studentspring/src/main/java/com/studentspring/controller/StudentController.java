@@ -44,6 +44,8 @@ public class StudentController {
 //         return ResponseEntity.ok(savedStudent);
 // }
 
+   
+
     @PostMapping("/post")
 public ResponseEntity<Student> create(@Valid @RequestBody Student student) {
     logger.debug("🔐 Creating student: name={}, age={}, bloodGroup={}, section={}",
